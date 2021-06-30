@@ -3,6 +3,7 @@
 Contains curated list of questions and topic relating a Data Engineer Interview
 
 # Table of Contents
-- [Data Warehousing](#Data Warehousing)
+- [Data Warehousing](data-warehousing)
 
-# Data Warehousing
+# <a id="data-warehousing"></a>Data Warehousing
+- Fact Table: 
