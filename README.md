@@ -9,13 +9,13 @@ Contains curated list of questions and topic relating to a Data Engineer Intervi
 
 ## OLTP vs OLAP
 
-### OLTP - Online Transaction Processing
+#### OLTP - Online Transaction Processing
 * Day to day operation of an application.
 * One thing at a time.
 * Optimized for inserts and updates.
 * Uses just the current state.
 
-### OLAP - Online Analytical Processing
+#### OLAP - Online Analytical Processing
 * Online query and analsis of business entities. 
 * Aggregations and questioning of many things at a time.
 * Optimized for heavy reads.
@@ -23,7 +23,7 @@ Contains curated list of questions and topic relating to a Data Engineer Intervi
 
 ## Star Schema
 
-### Dimension
+#### Dimension
 * "By" what we measure things?
 * The who, what when, where of things.
 * Examples: Dates, Products, Countries
@@ -33,15 +33,15 @@ Contains curated list of questions and topic relating to a Data Engineer Intervi
 * Type 2: Add new record for the new data, mark the old one inactive with inactivation date.
 * Type 3: Maintain multiple columns of of changed values.
 
-### Fact
+#### Fact
 * An observation or event.
 * Something to bemeasured.
 * Examples: Customer Payment, User Logins, Product Orders.
 
-### Grain
+#### Grain
 * Determines what each fact row contains and in what detail.
 
-### Surrogate  Key
+#### Surrogate  Key
 * The dimensions PK should be in control of the OLAP system.
 * Dimensions may come from multiple sources, synchronizing the PK system is an unnecessary headache.
 * Decouple OLTP system from OLAP system.
