@@ -1,3 +1,9 @@
+"""
+Given an array containing None values fill in the 
+None values with most recent non None value in the array.
+"""
+
+
 def solution(nums):
     prev = next(n for n in nums if n != None)
 

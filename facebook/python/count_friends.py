@@ -1,3 +1,10 @@
+"""
+Given a two dimensional list, for example [ [2,3],[3,4],[5]] 
+person 2 is friends with 3 etc, find how many friends each person has. 
+Note, one person has no friends.
+"""
+
+
 def solution(data):
     counts = {}
 
@@ -10,4 +17,5 @@ def solution(data):
 
     return counts
 
-assert count_friends([[2,3],[3,4],[5]]) == {2: 1, 3: 2, 4: 1, 5: 0}
+
+assert solution([[2, 3], [3, 4], [5]]) == {2: 1, 3: 2, 4: 1, 5: 0}

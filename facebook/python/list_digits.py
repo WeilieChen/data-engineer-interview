@@ -1,3 +1,9 @@
+"""
+Write a function that takes a number
+and return a list of its digits
+"""
+
+
 def solution(n):
     return [int(c) for c in str(n)]
 
