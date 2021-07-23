@@ -1,4 +1,4 @@
-def number_char(a_str, char):
+def solution(a_str, char):
     return a_str.count(char)
 
-assert number_char("mississippi", "s") == 4
+assert solution("mississippi", "s") == 4

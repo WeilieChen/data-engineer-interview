@@ -1,4 +1,4 @@
-def count_friends(data):
+def solution(data):
     counts = {}
 
     for friend_group in data:
