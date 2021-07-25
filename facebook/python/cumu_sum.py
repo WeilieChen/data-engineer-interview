@@ -7,7 +7,7 @@ sum of elements in a list.
 def solution(nums):
     prev = 0
     result = []
-    for i, n in enumerate(nums):
+    for n in enumerate(nums):
         prev = n + prev
         result.append(prev)
     return result
