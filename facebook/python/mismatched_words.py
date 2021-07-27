@@ -2,6 +2,11 @@
 Complete a function that returns a list containing 
 all the mismatched words (case sensitive) between two 
 given input strings.
+
+Given two sentences, you have to print the words those 
+are not present in either of the sentences. (If one word 
+is present twice in 1st sentence but not present in 2nd 
+sentence then you have to print that word too).
 """
 
 
