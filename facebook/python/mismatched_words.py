@@ -29,3 +29,19 @@ assert solution(
     "apple banana mango",
     "banana fruits mango"
 ) == ['apple', 'fruits']
+
+
+def solution2(sent1, sent2):
+    words1 = set(sent1.split())
+    words2 = set(sent2.split())
+
+    return (words1 - words2).union(words2 - words1)
+
+assert solution2(
+    "Firstly this is the first string",
+    "Next is the second string"
+) == {'Firstly', 'this', 'first', 'Next', 'second'}
+assert solution2(
+    "apple banana mango",
+    "banana fruits mango"
+) == {'apple', 'fruits'}
