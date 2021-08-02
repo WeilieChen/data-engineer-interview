@@ -10,6 +10,9 @@ def solution(sent1, sent2):
     return words1 & words2
 
 
+assert solution("", "") == set()
+assert solution("word", "word") == {"word"}
+assert solution("", "word") == set()
 assert solution(
     "Firstly this is the first string",
     "Next is the second string"

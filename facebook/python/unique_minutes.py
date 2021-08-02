@@ -7,6 +7,9 @@ minutes of the movie.
 
 
 def solution(times):
+    if len(times) == 0:
+        return 0
+
     times = sorted(times)
     total = times[0][1] - times[0][0]
 
@@ -23,6 +26,9 @@ def solution(times):
     return total
 
 
+assert solution([]) == 0
+assert solution([(0, 0), (0, 0)]) == 0
+assert solution([(0, 0), (1, 2)]) == 1
 assert solution([(0, 10), (15, 25), (12, 20), (30, 48)]) == 41
 assert solution([(0, 9), (0, 10), (1, 9)]) == 10
 assert solution([(0, 15), (10, 25)]) == 25

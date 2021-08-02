@@ -8,4 +8,5 @@ def solution(nums):
         print("*" * n)
 
 
+solution([])
 solution([2, 3, 6, 5])

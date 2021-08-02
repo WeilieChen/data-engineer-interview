@@ -16,6 +16,8 @@ def solution(sent):
 
     return len(result)
 
-
+assert solution("") == 0
+assert solution("once") == 1
+assert solution("once twice") == 2
 assert solution("once twice twice") == 1
 assert solution("this is a sentence") == 4

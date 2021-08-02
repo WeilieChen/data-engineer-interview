@@ -20,11 +20,15 @@ def solution(str1, str2):
     return [w for w in count if count[w] == 1]
 
 
+assert solution("", "") == []
+assert solution("First", "Second") == ["First", "Second"]
+assert solution("First", "First") == []
+assert solution("First", "") == ["First"]
+assert solution("", "Second") == ["Second"]
 assert solution(
     "Firstly this is the first string",
     "Next is the second string"
 ) == ['Firstly', 'this', 'first', 'Next', 'second']
-
 assert solution(
     "apple banana mango",
     "banana fruits mango"

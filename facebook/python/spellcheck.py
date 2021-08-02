@@ -74,8 +74,7 @@ def is_match(pos_map, word_list, query):
 
 
 word_list = ['cat', 'bte', 'art', 'drat', 'dart', 'drab']
-pos_map = set_up(['cat', 'bte', 'art', 'drat', 'dart', 'drab'])
-
+pos_map = set_up(word_list)
 assert is_match(pos_map, word_list, "cat") == True
 assert is_match(pos_map, word_list, "c.t") == True
 assert is_match(pos_map, word_list, ".at") == True
@@ -84,7 +83,12 @@ assert is_match(pos_map, word_list, "d..t") == True
 assert is_match(pos_map, word_list, "dr..") == True
 assert is_match(pos_map, word_list, "...") == True
 assert is_match(pos_map, word_list, "....") == True
-
+assert is_match(pos_map, word_list, "") == False
 assert is_match(pos_map, word_list, ".....") == False
 assert is_match(pos_map, word_list, "h.t") == False
 assert is_match(pos_map, word_list, "c.") == False
+
+
+word_list = []
+pos_map = set_up(word_list)
+assert is_match(pos_map, word_list, "cat") == False

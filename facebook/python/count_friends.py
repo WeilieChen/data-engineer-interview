@@ -25,6 +25,8 @@ def solution(data):
     return counts
 
 
+assert solution([]) == {}
+assert solution([[]]) == {}
 assert solution([[2, 3], [3, 4], [5]]) == {2: 1, 3: 2, 4: 1, 5: 0}
 assert solution([['A', 'B'], ['B', 'C'], ['B', 'D'], ['E']],) == {
     'A': 1, 'B': 3, 'C': 1, 'D': 1, 'E': 0}

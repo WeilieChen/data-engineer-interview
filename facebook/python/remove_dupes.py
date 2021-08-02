@@ -15,4 +15,5 @@ def solution(a_list):
     return result
 
 
+assert solution([]) == []
 assert solution([1, 1, 2, 1, 1]) == [1, 2]
