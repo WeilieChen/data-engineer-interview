@@ -88,3 +88,66 @@ and avg(store_cost) > 3
 -- To improve sales, the marketing department runs various types of promotions.
 -- The marketing manager would like to analyze the effectiveness of these promotion campaigns.
 -- In particular, what percent of our sales transactions had a valid promotion applied?
+select sum(case when promotion_id is not null then 1 end) * 100 / count(*)
+from sales
+
+-- We want to run a new promotion for our most successful category of products
+-- (we call these categories “product classes”).
+-- Can you find out what are the top 3 selling product classes by total sales?
+select pc.product_class_id
+from sales s 
+join product p on p.product_id = s.product_id
+join product_classes pc on pc.product_class_id = p.product_class_id
+group by pc.product_class_id
+order by sum(store_sales) desc
+limit 3
+
+-- We are considering running a promo across brands. We want to target
+-- customers who have bought products from two specific brands.
+-- Can you find out which customers have bought products from both the
+-- “Fort West" and the "Golden" brands?
+select customer_id
+from sales s
+from product p on p.product_id = s.product_id
+where p.brand_name in ('Fort West', 'Golden')
+group by customer_id
+having count(distinct brand_name) = 2
+
+-- Which product had the highest sales with promotions and sales?
+select product_name, sum(store_sales) as sales
+from sales s
+join products p
+on s.product_id = p.product_id
+where promotion_id is not null
+group by product_id
+order by sales desc
+LIMIT 1
+
+-- Manager want to analyze the how the promotions on certain products are performing.
+-- Find the percent of promoted sales?
+select product_id,
+    sum(case when promotion_id is not null then 1 else 0 end) * 100 / count(*)
+from sales
+group by product_id
+
+-- Get the top 3 product_class_id by the total sales.
+select product_class_id
+from sales s 
+join products p on p.product_id = s.product_id
+group by p.product_class_id
+order by sum(store_sales) desc
+limit 3
+
+-- Percentage increase in revenue compared to promoted and non-promoted products.
+select product_id,
+    sum(case when promotion_id is not null then store_cost * units_sold end) * 100 /
+    sum(case when promotion_id is null then store_cost * units_sold end)
+from sales
+group by product_id
+
+-- Product classes that has the highest transactions
+select product_class_id
+from sales s 
+join products p on p.product_id = s.product_id
+group by p.product_class_id
+order by count(*) desc

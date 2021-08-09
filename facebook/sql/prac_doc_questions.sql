@@ -63,3 +63,14 @@ select min(order_date) as earliest_order, max(order_date) as latest_order
 from orders o 
 join customer c on c.id = o.cust_id 
 where c.name = 'Samony'
+
+-- Count of Customers who bought 2 items type (A,B)
+select count(name) AS count
+from customer
+where id in (
+    select cust_id
+    from orders
+    where product_name in ('A','B')
+    group by cust_id
+    having count(distinct product_name) = 2
+);
