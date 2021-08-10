@@ -1,9 +1,11 @@
 """
 Count distinct words in a sentence.
 """
-
+import string
 
 def solution(sent):
+    sent = "".join(c for c in sent if c not in set(string.punctuation))
+
     count = {}
     for word in sent.split():
         count[word] = count.get(word, 0) + 1
