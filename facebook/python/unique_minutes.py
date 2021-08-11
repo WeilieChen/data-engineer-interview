@@ -27,6 +27,8 @@ def solution(times):
 
 
 assert solution([]) == 0
+assert solution([(0, 0)]) == 0
+assert solution([(0, 5)]) == 5
 assert solution([(0, 0), (0, 0)]) == 0
 assert solution([(0, 0), (1, 2)]) == 1
 assert solution([(0, 10), (15, 25), (12, 20), (30, 48)]) == 41
