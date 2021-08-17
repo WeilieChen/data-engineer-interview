@@ -52,7 +52,7 @@ def set_up(word_list):
     pos_map = {}
     for word in word_list:
         for i, char in enumerate(word):
-            pos_map[i] = pos_map.get(i, set()).union(set(char))
+            pos_map[i] = pos_map.get(i, set()).union(char)
 
     return pos_map
 

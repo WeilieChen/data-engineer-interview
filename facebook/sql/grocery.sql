@@ -49,9 +49,27 @@ from products
 -- most money the grocery chain had spent on its promotional campaigns?
 select media_type
 from promotions
+where media_type not like '%,%'
 group by media_type
 order by sum(cost) desc
 limit 5
+
+SELECT media_type, SUM(cost) FROM (
+    SELECT DISTINCT media_type, s.promotion_id, cost
+    FROM promotions p
+    JOIN sales s
+    ON p.promotion_id = s.promotion_id
+    JOIN products pd
+    ON pd.product_id = s.product_id
+    JOIN product_classes pc
+    ON pc.product_class_id = pd.product_class_id
+    WHERE s.promotion_id > 0
+    AND media_type NOT LIKE "%,%"
+    AND product_department = "grocery"
+) t
+GROUP BY media_type
+ORDER BY SUM(cost) DESC
+LIMIT 5;
 
 -- Find top 5 sales products having promotions
 select product_id
@@ -77,13 +95,20 @@ from sales s
 join promotion p on p.promotion_id = s.promotion_id
 where s.transaction_date = p.start_date and s.transaction_date = p.end_date
 
+select sum(case when s.transaction_date in (p.start_date, p.end_date) then 1 else 0 end) * 100 / count(*)
+from sales s
+join promotion p on p.promotion_id = s.promotion_id
+
 -- What brands have an average price above $3 and contain at least 2 different products?
 select p.brand_name
 from products p 
 join sales s on s.product_id = p.product_id
 group by p.brand_name
 having count(distinct product_id) >= 2
+-- avg price per transaction
 and avg(store_cost) > 3
+-- avg price for each units sold
+and sum(store_cost * units_sold) / sum(units_sold) >= 3
 
 -- To improve sales, the marketing department runs various types of promotions.
 -- The marketing manager would like to analyze the effectiveness of these promotion campaigns.
