@@ -178,21 +178,20 @@ group by p.product_class_id
 order by count(*) desc
 
 -- Write a query that returns product_family, total units_sold and percentage of promoted.
+select pc.product_family, sum(s.units_sold),
+    sum(case when pc.promotion_id > 1 then 1 else 0 end) * 100.0 /
+    sum(case when pc.promotion_id = 0 then 1 else 0 end)
+from sales s 
+join products p on p.product_id = s.product_id
+join product_class pc on pc.product_class_id = p.product_class_id
+group by pc.product_family
 
--- Write a query that returns product_category, and percentage of unsold.
-
-??
---like this 
--- find out what product_category has not been sold 
-with unsold_category as (
-select a.product_class_id,a.product_category
-from 
-product_classes  a
-left join 
-products b
-on a.product_class_id = b.product_class_id
-where b.product_id not in (select distinct product_id from sales)
-    )
-    
-select ((select count(product_class_id) from unsold_category)/ count(product_class_id)) *100
+-- Write a query that returns percentage of unsold product categories.
+with unsold_product_category as (
+    select a.product_class_id, a.product_category
+    from product_classes pc
+    join products p on p.product_class_id = pc.product_class_id
+    where p.product_id not in (select distinct product_id from sales)
+)
+select ((select count(distinct product_class_id) from unsold_product_category) / count(product_class_id)) *100
 from product_classes 
