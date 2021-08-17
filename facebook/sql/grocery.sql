@@ -176,3 +176,7 @@ from sales s
 join products p on p.product_id = s.product_id
 group by p.product_class_id
 order by count(*) desc
+
+-- Write a query that returns product_family, total units_sold and percentage of promoted.
+
+-- Write a query that returns product_category, and percentage of unsold.
