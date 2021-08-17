@@ -55,10 +55,13 @@
 -- +-------------+--------------+
 -- The product with id 1 was only sold in spring 2019 while the other two were sold after.
 
-select product_id, product_name
-from product
-where product_id in (
-    select distinct product_id
-    from sales
-    where sale_date >= '2019-01-01' and sale_date < '2019-04-01'
+select distinct p.product_id,product_name
+from Product p right join Sales s
+on s.product_id=p.product_id
+where sale_date between '2019-01-01' and '2019-03-31'
+and p.product_id not in (
+    select p.product_id
+    from Product p right join Sales s
+    on s.product_id=p.product_id
+    where sale_date not between '2019-01-01' and '2019-03-31'
 )
