@@ -195,3 +195,16 @@ with unsold_product_category as (
 )
 select ((select count(distinct product_class_id) from unsold_product_category) / count(product_class_id)) *100
 from product_classes 
+
+
+with sold_product_category as (
+    select distinct product_category
+    from sales s
+    join products p on p.product_id = s.product_id
+    join product_classes pc on pc.product_class_id = p.product_id
+)
+select 
+    count(case when product_category not in (select product_category from sold_product_category)
+        then product_category) * 1.0
+    / count(product_class_id)
+from product_classes 

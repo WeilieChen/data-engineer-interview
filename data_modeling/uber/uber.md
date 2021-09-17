@@ -1,13 +1,11 @@
 # Uber Data Model
 
-## Metrics
+## Performance Metrics
+* Active Users/Riders
+* Active Drivers
+* Gross Trips
+* Bookings
+* Driver Ratings
+* Monthly Active Platform Consumers - unique consumerss of mobilitiy ride on given month
 
-### Daily Active Users
-
-### Daily Active Drivers
-
-### Total Trips per Week
-
-### Revenue
-
-### Average Driver Ratings
+https://www.rocketblocks.me/blog/uber-metrics.php
