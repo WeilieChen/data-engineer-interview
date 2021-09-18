@@ -22,8 +22,9 @@ The Department table holds all departments of the company.
 | 1  | IT       |
 | 2  | Sales    |
 +----+----------+
-Write a SQL query to find employees who earn the top three salaries in each of the department. For the above tables, your SQL query should return the following rows.
+Write a SQL query to find employees who earn the top three salaries in each of the department. 
 
+For the above tables, your SQL query should return the following rows.
 +------------+----------+--------+
 | Department | Employee | Salary |
 +------------+----------+--------+
