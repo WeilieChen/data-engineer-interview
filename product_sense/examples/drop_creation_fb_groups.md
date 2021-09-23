@@ -1,0 +1,1 @@
+Creation of Facebook user groups has gone down by 20% what will you?

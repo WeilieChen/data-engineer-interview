@@ -22,3 +22,6 @@ def solution(data):
 
 assert count_friends([[2,3],[3,4],[5]]) == {2: 1, 3: 2, 4: 1, 5: 0}
 ```
+
+## Mission Statement
+To give people the power to build community and bring the world closer together

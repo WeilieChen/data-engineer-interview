@@ -201,10 +201,15 @@ with sold_product_category as (
     select distinct product_category
     from sales s
     join products p on p.product_id = s.product_id
-    join product_classes pc on pc.product_class_id = p.product_id
+    join product_classes pc on pc.product_class_id = p.product_class_id
 )
 select 
     count(case when product_category not in (select product_category from sold_product_category)
         then product_category) * 1.0
     / count(product_class_id)
 from product_classes 
+
+select count(distinct case when s.product_id is null then pc.product_category) / count(distinct product_category)
+from product_classes pc
+join products p on p.product_class_id = pc.product_class_id
+left join sales s on s.product_id = p.product_id
