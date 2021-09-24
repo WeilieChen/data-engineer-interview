@@ -77,3 +77,5 @@ date_id, category_id, movie_id, total_viewed
 
 -- build bridge table from string list column
 select unnest(string_to_array(string_list_column, ','))
+
+-- how to catch empty or double loaded data sets?
