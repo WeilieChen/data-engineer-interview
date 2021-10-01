@@ -51,7 +51,7 @@ where pu.type = 'Airport' or dof.type = 'Airport'
 -- count riders who have only used uber to go to and from airport
 select count(rider)
 from (
-    select rider_id
+    select distinct rider_id
     from fact_ride r
     join dim_location pu on pu.id = r.pick_up_id
     join dim_location dof on dof.id = r.drop_off_id

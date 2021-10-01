@@ -9,7 +9,7 @@ metric = {
     "mobile": ["ios", "web"]
 }
 
-output ={
+output = {
     "overall": 6
     "mobile": 3
 }
